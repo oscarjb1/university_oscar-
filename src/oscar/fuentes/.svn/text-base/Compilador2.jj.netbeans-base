@@ -1,0 +1,88 @@
+options {
+	LOOKAHEAD=3;
+	FORCE_LA_CHECK=true;
+	STATIC=false;
+}
+
+
+PARSER_BEGIN(Compilador2)
+	public class Compilador2{
+	public static void main(String args[]) throws ParseException {
+		Compilador2 miParser = new Compilador2(System.in);
+		miParser.programa();
+	}
+}
+PARSER_END(Compilador2)
+
+
+SKIP : {
+	" "
+	| "\t"
+	| "\n"
+	| "\r"
+}
+
+TOKEN [IGNORE_CASE] : {
+
+	<TIPO: ( "int" | "boolean" )>
+	|<OP: ("==" | "+")>
+	|<ELSE: "else">
+	|<IF: "if">
+	|<PARIZQUIERDO: "(" >
+	|<PARDERECHO: ")" >
+	|<LLAVEIZQUIERDA: "{">
+	|<LLAVEDERECHA: "}">
+	|<COMA: ",">
+	|<BOOLEANVALUE: ("true" | "false" )>
+	|<RETURN: "return">
+	|<CLASS: "class">
+	|<EXTENDS: "extends" >
+	|<MAIN: "main">
+	|<VOID: "void">
+	|<ID: (["a"-"z"])+ (["0"-"9"]|["a"-"z"])*>
+	|<ENTERO: (["0"-"9"])+>
+}
+
+void programa():{}{
+	claseMain() (declaracionClase())* <EOF>
+}
+
+void declaracionVariable():{}{
+	<TIPO> <ID> ";"
+}
+
+void exprecion():{}{	
+	<ENTERO>
+	|exprecionPrima() <OP> exprecion()
+	|<BOOLEANVALUE>
+	|<ID>
+}
+
+void exprecionPrima():{}{	
+	<ENTERO>
+	|<BOOLEANVALUE>
+	|<ID>	
+}
+
+
+void statement():{}{
+	<LLAVEIZQUIERDA> (statement())* <LLAVEDERECHA>
+	|<IF> <PARIZQUIERDO> exprecion() <PARDERECHO> statement() <ELSE> statement()
+	|"System.out.println" <PARIZQUIERDO> exprecion() <PARDERECHO> ";"
+	|<ID> "=" exprecion() ";"
+}
+
+void declaracionMetodo():{}{
+	<TIPO> <ID> <PARIZQUIERDO> (<TIPO> <ID> ( <COMA> <TIPO> <ID> )* )? <PARDERECHO>
+	<LLAVEIZQUIERDA> (declaracionVariable())* (statement())* <RETURN> exprecion() ";" <LLAVEDERECHA>
+}
+
+
+void declaracionClase():{}{
+	<CLASS> <ID> (<EXTENDS> <ID>)? <LLAVEIZQUIERDA> (declaracionVariable())* (declaracionMetodo())* <LLAVEDERECHA>
+}
+
+void claseMain():{}{
+	<CLASS> <ID> <LLAVEIZQUIERDA> <VOID> <MAIN> <PARIZQUIERDO> <ID> <PARDERECHO> statement() <LLAVEDERECHA>
+}
+

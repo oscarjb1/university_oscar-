@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/bco/!svn/ver/21/proyectos/Oscar++/src/oscar/compilador1
+END
+Token.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/bco/!svn/ver/21/proyectos/Oscar++/src/oscar/compilador1/Token.java
+END
+TokenMgrError.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/bco/!svn/ver/21/proyectos/Oscar++/src/oscar/compilador1/TokenMgrError.java
+END
+SimpleCharStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/bco/!svn/ver/21/proyectos/Oscar++/src/oscar/compilador1/SimpleCharStream.java
+END
+Oscar2TokenManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/bco/!svn/ver/21/proyectos/Oscar++/src/oscar/compilador1/Oscar2TokenManager.java
+END
+Oscar2Constants.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/bco/!svn/ver/21/proyectos/Oscar++/src/oscar/compilador1/Oscar2Constants.java
+END
+Oscar2.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/bco/!svn/ver/21/proyectos/Oscar++/src/oscar/compilador1/Oscar2.java
+END
+ParseException.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/bco/!svn/ver/21/proyectos/Oscar++/src/oscar/compilador1/ParseException.java
+END

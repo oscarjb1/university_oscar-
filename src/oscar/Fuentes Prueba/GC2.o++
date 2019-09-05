@@ -1,0 +1,1 @@
+int hola;$int hola2;$if(hola==hola2)$	hola = hola2;$else$	hola2 = hola;$

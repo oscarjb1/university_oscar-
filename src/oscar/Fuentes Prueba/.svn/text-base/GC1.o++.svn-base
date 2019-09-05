@@ -1,0 +1,6 @@
+int hola;
+int hola2;
+if(hola==hola2)
+	System.out.println(hola2);
+else
+	System.out.println(hola);

@@ -1,0 +1,1 @@
+class MainClass{$	void main(args){$		System.out.println( var1 );$	}$}$
